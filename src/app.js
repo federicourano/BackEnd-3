@@ -1,6 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
+import "dotenv/config";
+
 
 import usersRouter from './routes/users.router.js';
 import petsRouter from './routes/pets.router.js';
@@ -11,7 +13,8 @@ import mocksRouter from "./routes/mocks.router.js"
 const app = express();
 const PORT = process.env.PORT||8080;
 
-mongoose.connect("mongodb+srv://admin:LAtayni8kC2AW6na@urano.gu8hoe2.mongodb.net/BackEnd3?retryWrites=true&w=majority&appName=Urano")
+const Mongo_URL = process.env.MONGO_URL
+mongoose.connect(Mongo_URL);
 
 app.use(express.json());
 app.use(cookieParser());
