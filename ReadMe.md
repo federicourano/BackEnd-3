@@ -46,6 +46,12 @@ Para chequear que funciona, ir a: http://localhost:8080/api/users
 
 ![image](https://github.com/user-attachments/assets/8be80435-3c9e-461d-80d1-a8a426f8b50d)
 
+SWAGGER
+
+Documentancion subida en: http://localhost:8080/api-docs/
+
+![image](https://github.com/user-attachments/assets/14e49b1a-11ce-4470-8621-58c18fedbfc8)
+
 
 
 
