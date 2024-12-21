@@ -32,7 +32,7 @@ Deberia aparecer esto si se ejecutaron correctamente
 
 DOCKER
 
-Proyecto Dockerizado.
+Proyecto Dockerizado. Link a la imagen de docker: https://hub.docker.com/r/fedeurano/docker_urano
 
 Pullear el proyecto con el comando: docker pull fedeurano/docker_urano:ver1
 
