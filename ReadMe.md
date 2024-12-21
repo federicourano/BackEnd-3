@@ -24,8 +24,28 @@ Base de datos despues de generar pets y users
 
 TEST
 
-Para ejecutar los tests, correr el comando: npm run test
+Para ejecutar los tests, correr el comando: npm test
 
 Deberia aparecer esto si se ejecutaron correctamente
 
 ![image](https://github.com/user-attachments/assets/4a9c2996-b896-489e-9f72-3e640eeff5f3)
+
+DOCKER
+
+Proyecto Dockerizado.
+
+Pullear el proyecto con el comando: docker pull fedeurano/docker_urano:ver1
+
+![image](https://github.com/user-attachments/assets/e785b590-5482-4ac2-8c9e-abb90cc29405)
+
+Luego correrlo con el siguiente comando:docker run -p 3080:3080 docker_urano 
+
+![image](https://github.com/user-attachments/assets/b5bf2f5d-a847-4e3e-acfc-fe9e090ed873)
+
+Para chequear que funciona, ir a: http://localhost:8080/api/users
+
+![image](https://github.com/user-attachments/assets/8be80435-3c9e-461d-80d1-a8a426f8b50d)
+
+
+
+
