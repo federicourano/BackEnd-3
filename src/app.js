@@ -1,7 +1,7 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
-import "dotenv/config";
+import { MongoDB } from './config/database.js';
+
 
 
 import usersRouter from './routes/users.router.js';
@@ -10,14 +10,16 @@ import adoptionsRouter from './routes/adoption.router.js';
 import sessionsRouter from './routes/sessions.router.js';
 import mocksRouter from "./routes/mocks.router.js"
 
+
+MongoDB();
+
 const app = express();
 const PORT = process.env.PORT||8080;
 
-const Mongo_URL = process.env.MONGO_URL
-mongoose.connect(Mongo_URL);
 
 app.use(express.json());
 app.use(cookieParser());
+
 
 app.use('/api/users',usersRouter);
 app.use('/api/pets',petsRouter);
@@ -26,3 +28,5 @@ app.use('/api/sessions',sessionsRouter);
 app.use("/api/mocks", mocksRouter);
 
 app.listen(PORT,()=>console.log(`Listening on ${PORT}`))
+
+export default app;
