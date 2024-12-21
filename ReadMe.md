@@ -21,3 +21,11 @@ Base de datos despues de generar pets y users
 ![10 pets](src/imgs/image-3.png)
 
 ![15 users](src/imgs/image-4.png)
+
+TEST
+
+Para ejecutar los tests, correr el comando: npm run test
+
+Deberia aparecer esto si se ejecutaron correctamente
+
+![image](https://github.com/user-attachments/assets/4a9c2996-b896-489e-9f72-3e640eeff5f3)
