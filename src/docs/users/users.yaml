@@ -1,0 +1,155 @@
+paths:
+  /api/users:
+    get:
+      summary: Devuelve todos los usuarios
+      tags:
+        - Users
+      description: Devuelve todos los usuarios.
+      responses:
+        '200':
+          description: Lista de todos los usuarios.
+          content:
+            application/json:
+              example:
+                status: success
+                payload:
+                  - _id: "6764d9d40bf28810c1a3bceb"
+                    first_name: Jose
+                    last_name: Bautista
+                    email: jose@example.com
+                    password: "$2b$10$7TVNjuQFL9YVIfOngFMesOM646NBPJZZblyhzUpVApWadrCdgr4bC"
+                    role: user
+                    pets: []
+                    __v: 0
+                  - _id: "6764d9d40bf28810c1a3bcec"
+                    first_name: Maria
+                    last_name: Gomez
+                    email: maria@example.com
+                    password: $2b$10$3fw8qNQk5HSEjK6skonfieQxfqCRuzIK66lxAC0x65qU/Q6m7//B6
+                    role: admin
+                    pets: []
+                    __v: 1
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                status: error
+                error: Internal Server Error
+  /api/users/{uid}:
+    get:
+      summary: Devuelve un usuario por ID
+      tags:
+        - Users
+      description: Devuelve un usuario por su ID unica.
+      responses:
+        '200':
+          description: Datos devueltos de forma correcta.
+          content:
+            application/json:
+              example:
+                status: success
+                payload:
+                  _id: "6764d9d40bf28810c1a3bceb"
+                  first_name: Martin
+                  last_name: Vazquez
+                  email: martin@example.com
+                  password: "$2b$10$cCipA9CBG0idLv9HJEydNeeYcnDoXUBhtgLb2z1KyE3kgKr9mY4Ma"
+                  role: user
+                  pets: []
+                  __v: 0
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              example:
+                status: error
+                error: User not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                status: error
+                error: Internal Server Error
+    put:
+      summary: Actualiza un usuario
+      tags:
+        - Users
+      description: Actualiza la informacion de un usuario existente.
+      parameters:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              first_name: María Laura
+              last_name: López López
+              email: mailactualizado@example.com
+      responses:
+        '200':
+          description: Usuario actualizado correctamente.
+          content:
+            application/json:
+              example:
+                status: success
+                message: User updated
+        '404':
+          description: Ususario no encontrado
+          content:
+            application/json:
+              example:
+                status: error
+                error: User not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                status: error
+                error: Internal Server Error
+  /api/sessions/register:
+    post:
+      summary: Registra un nuevo usuario
+      tags:
+        - Users
+      description: Registra un usuario nuevo.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              first_name: Fede
+              last_name: Urano
+              email: fede@example.com
+              password: Coder123
+      responses:
+        '200':
+          description: Usuario registrado correctamente. El payload es el ID del nuevo usuario.
+          content:
+            application/json:
+              example:
+                status: success
+                payload: "6764d9d40bf28810c1a3bceb"
+        '400':
+          description: Invalid input 
+          content:
+            application/json:
+              examples:
+                incomplete_values:
+                  summary: Incomplete values
+                  value:
+                    status: error
+                    error: Incomplete values
+                user_exists:
+                  summary: User already exists
+                  value:
+                    status: error
+                    error: User already exists
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                status: error
+                error: Internal Server Error
